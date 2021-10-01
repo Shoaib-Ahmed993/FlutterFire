@@ -35,6 +35,10 @@ class Register extends StatelessWidget {
       }
     }
 
+    void backToHome(){
+      Navigator.of(context).pushNamed('/');
+    }
+
     return Scaffold(
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 15),
@@ -66,7 +70,9 @@ class Register extends StatelessWidget {
             // ),
 
             // Outlined Button
-            OutlinedButton(onPressed: registerUser, child: Text("Register"))
+            OutlinedButton(onPressed: registerUser, child: Text("Register")),
+            SizedBox(height: 10,),
+            OutlinedButton(onPressed: backToHome, child: Text("Back to Home")),
           ],
         )),
       ),

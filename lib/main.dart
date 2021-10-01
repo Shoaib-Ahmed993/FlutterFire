@@ -1,6 +1,9 @@
+import 'package:flutter/material.dart';
+
 import 'package:firebase/register.dart';
 import 'package:firebase/login.dart';
-import 'package:flutter/material.dart';
+import 'package:firebase/home.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 
 void main() {
@@ -30,7 +33,12 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: Login(),
+            home: Home(),
+            routes: {
+              '/login': (context) => Login(),
+              '/register': (context) => Register(),
+              '/home': (context) => Home(),
+            },
           );
         }
 

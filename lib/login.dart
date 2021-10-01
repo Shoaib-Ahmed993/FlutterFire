@@ -16,17 +16,24 @@ class Login extends StatelessWidget {
       final String password = passwordController.text;
 
       try {
-        final UserCredential user = await auth.signInWithEmailAndPassword(email: email, password: password);
-        final DocumentSnapshot snapshot = await firestore.collection('users').doc(user.user.uid).get();
+        final UserCredential user = await auth.signInWithEmailAndPassword(
+            email: email, password: password);
+        final DocumentSnapshot snapshot =
+            await firestore.collection('users').doc(user.user.uid).get();
         final data = snapshot.data();
         print("User is logged in successfully");
         print(data);
+
         // print(data['username']);
         // print(data['email']);
         // print(data['password']);
       } catch (e) {
         print('error: $e');
       }
+    }
+
+    void goToRegister() {
+      Navigator.of(context).pushNamed('/register');
     }
 
     return Scaffold(
@@ -49,10 +56,12 @@ class Login extends StatelessWidget {
             ),
 
             // Text Button
-            TextButton(
-              onPressed: loginUser,
-              child: Text("Login")
+            TextButton(onPressed: loginUser, child: Text("Login")),
+
+            SizedBox(
+              height: 10,
             ),
+            TextButton(onPressed: goToRegister, child: Text("Go to Register"))
 
             // Outlined Button
             // OutlinedButton(onPressed: registerUser, child: Text("Register"))
