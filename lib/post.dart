@@ -3,12 +3,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class Post extends StatelessWidget {
-  
-    final Map data;
-    Post({this.data});
+  final Map data;
+  Post({this.data});
   @override
   Widget build(BuildContext context) {
-
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
